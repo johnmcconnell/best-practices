@@ -126,6 +126,52 @@ is preferred over
 def fetch_from_db
 ```
 
+### 6. Use a package structure centered around the domain
+
+A project should have a directory structure centered around its problem domain.
+For example, an application that has the directory structure below:
+
+```
+ src
+  |- task
+       |- handler.clj
+       |- db.clj
+       |- domain.clj
+       |- runner.clj
+  |- label
+       |- handler.clj
+       |- db.clj
+       |- domain.clj
+       |- runner.clj
+  |- item
+       |- handler.clj
+       |- db.clj
+       |- domain.clj
+       |- runner.clj
+```
+
+is preferred over
+
+```
+ src
+  |- handlers
+       |- task.clj
+       |- label.clj
+       |- item.clj
+  |- dbs
+       |- task.clj
+       |- label.clj
+       |- item.clj
+  |- domains
+       |- task.clj
+       |- label.clj
+       |- item.clj
+  |- runners
+       |- task.clj
+       |- label.clj
+       |- item.clj
+```
+
 ## License
 
 Copyright © 2017 John McConnell
