@@ -61,6 +61,37 @@ else
 endif
 ```
 
+### 3. Affirmative predicates are more readable
+
+There are two different types of predicates; affirmative and negative.
+
+For example, `valid?` is affirmative and `not_valid?` is negative.
+
+Code which looks like:
+
+```ruby
+if not valid?
+```
+
+is preferred over
+
+```
+if not_valid?
+```
+
+If requirements change and the logic needs to be complemented.
+The following code looks much better:
+
+```
+if valid?
+```
+
+over
+
+```
+if not not_valid?
+```
+
 ## License
 
 Copyright © 2017 John McConnell
