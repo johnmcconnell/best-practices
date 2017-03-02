@@ -172,6 +172,32 @@ is preferred over
        |- item.clj
 ```
 
+### 7. Avoid creating functions which 'swallow' errors
+
+Swallowing an error is catching an error only to ignore it and return a failed result.
+
+For example:
+
+```java
+public boolean myMethod() throws MyException {
+  return thingThatCanFail();
+}
+```
+
+is preferred over
+
+```java
+public boolean myMethod() {
+  try {
+    thingThatCanFail();
+    return true;
+  } catch (MyException e) {
+    System.out.println("An error occured!", e);
+    return false;
+  }
+}
+```
+
 ## License
 
 Copyright © 2017 John McConnell
