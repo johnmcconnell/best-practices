@@ -108,6 +108,24 @@ is preferred over
 def valid
 ```
 
+### 5. Functions with side effects should have a '!' suffix
+
+Functions with side effects should have a `!` suffix (when possible).
+Side effects include IO, system calls, interacting with global state,
+and calling another function with side effects.
+
+For example:
+
+```ruby
+def fetch_from_db!
+```
+
+is preferred over
+
+```ruby
+def fetch_from_db
+```
+
 ## License
 
 Copyright © 2017 John McConnell
