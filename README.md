@@ -26,6 +26,41 @@ should have tests in:
          |- pca_test.clj
 ```
 
+### 2. Keep line length short
+
+Code which looks like:
+
+```ruby
+def application_keywords(params)
+  id = params.fetch(:id)
+  user = params.fetch(:user)
+  app = find_application(id)
+  documents = app.docs
+  if user.legal_scoped?
+    documents = app.build_legal_docs(Time.now, user)
+  end
+  semantic_keywords(documents)
+end
+```
+
+is preferred over
+```ruby
+def application_keywords(params)
+  semantic_keywords(if params.fetch(:user).legal_scoped? then find_application(params.fetch(:id)).build_legal_docs(Time.now, params.fetch(:user)) else find_application(params.fetch(:id)).docs
+end
+```
+
+You can add this to your .vimrc to highlight the 80th column.
+
+http://stackoverflow.com/questions/235439/vim-80-column-layout-concerns
+```
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+```
+
 ## License
 
 Copyright © 2017 John McConnell
