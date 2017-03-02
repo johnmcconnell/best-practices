@@ -92,6 +92,22 @@ over
 if not not_valid?
 ```
 
+### 4. Predicate functions should have a '?' suffix
+
+Predicate functions should have a `?` suffix (when possible).
+
+For example:
+
+```ruby
+def valid?
+```
+
+is preferred over
+
+```ruby
+def valid
+```
+
 ## License
 
 Copyright © 2017 John McConnell
